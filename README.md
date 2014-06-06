@@ -17,8 +17,9 @@ Attributes
 ----------
 #### opsmatic::handler
 
-`node[:opsmatic][:integration_token]` - You must configure this attribute with your integration token. You can find your
+* `node[:opsmatic][:integration_token]` - You must configure this attribute with your integration token. You can find your
 integration token on the account settings page in your Opsmatic account.
+* `node[:opsmatic][:ssl_peer_verify]` - Enables/Disable OpenSSL peer verification. Defaults to false (no peer verificaiton) until we can work out a consistent and reliable way to make this work for everyone.
 
 Usage
 -----
