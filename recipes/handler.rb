@@ -11,7 +11,8 @@ chef_handler "Chef::Handler::Opsmatic" do
   source "chef/handler/opsmatic"
   arguments [ 
     :integration_token => node[:opsmatic][:integration_token],
-    :collector_url     => node[:opsmatic][:collector_url]
+    :collector_url     => node[:opsmatic][:collector_url],
+    :ssl_peer_verify   => node[:opsmatic][:ssl_peer_verify]
   ]
   action :nothing
 end.run_action(:enable)
