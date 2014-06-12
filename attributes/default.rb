@@ -11,4 +11,4 @@ default[:opsmatic][:ssl_peer_verify] = false
 # so we'll need to pin the version in the attributes, and suggest
 # customers configure this attribute globally in their environment to make
 # upgrading easier
-default[:opsmatic][:handler_version] = "0.0.5"
+default[:opsmatic][:handler_version] = "0.0.6"
