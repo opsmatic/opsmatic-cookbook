@@ -3,6 +3,7 @@
 
 chef_gem "chef-handler-opsmatic" do
   action :upgrade
+  version node[:opsmatic][:handler_version]
 end
 
 require 'chef/handler/opsmatic'

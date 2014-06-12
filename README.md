@@ -20,6 +20,8 @@ Attributes
 * `node[:opsmatic][:integration_token]` - You must configure this attribute with your integration token. You can find your
 integration token on the account settings page in your Opsmatic account.
 * `node[:opsmatic][:ssl_peer_verify]` - Enables/Disable OpenSSL peer verification. Defaults to false (no peer verificaiton) until we can work out a consistent and reliable way to make this work for everyone.
+* `node[:opsmatic][:handler_version]` - Version of the chef-handler-opsmatic rubygem to use. We suggest you set this attribute somewhere globally in your environment, we'll notify you when upgrades are available
+and you can bump the version number.
 
 Usage
 -----
