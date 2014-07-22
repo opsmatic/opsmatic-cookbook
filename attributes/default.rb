@@ -12,3 +12,9 @@ default[:opsmatic][:ssl_peer_verify] = false
 # customers configure this attribute globally in their environment to make
 # upgrading easier
 default[:opsmatic][:handler_version] = "0.0.6"
+
+# default to installing the latest version, but don't auto upgrade moving forward
+# change action to "upgrade" to automatically fetch the latest version of the agent
+# change version to a particular version to pin the agent to a particular version
+default[:opsmatic][:agent_action] = "install"
+default[:opsmatic][:agent_version] = nil
