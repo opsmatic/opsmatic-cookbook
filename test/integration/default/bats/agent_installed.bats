@@ -1,5 +1,16 @@
-@test "opsmatic_public repo is added" {
+@test "opsmatic_public debian repo is added" {
+	if [ ! -e /etc/lsb-release ]; then
+		skip "Not on a debian system"
+	fi
 	result="$(cat /etc/apt/sources.list.d/opsmatic_public.list | grep any | wc -l)"
+	[ "$result" -eq "1" ]
+}
+
+@test "opsmatic_public yum repo is added" {
+	if [ -e /etc/lsb-release ]; then
+		skip "Not on a centos-like system"
+	fi
+	result="$(cat /etc/yum.repos.d/opsmatic_public.repo  | grep opsmatic_packagecloud | wc -l)"
 	[ "$result" -eq "1" ]
 }
 

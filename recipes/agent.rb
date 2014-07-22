@@ -10,7 +10,7 @@ case node[:platform_family]
 when "debian"
   include_recipe "opsmatic::debian_public"
 when "rhel"
-  include_recipe "opsmatic::agent_rhel"
+  include_recipe "opsmatic::rhel_public"
 else
   warn "Unfortunately the Opsmatic Agent isn't supported on this platform"
   return
