@@ -16,3 +16,10 @@ default[:opsmatic][:handler_ssl_peer_verify] = false
 # change version to a particular version to pin the agent to a particular version
 default[:opsmatic][:agent_action] = "install"
 default[:opsmatic][:agent_version] = nil
+
+default[:opsmatic][:integration_token] = nil
+
+# same as corresponding settings for agent, but for the CLI util
+default[:opsmatic][:cli_action] = "install"
+default[:opsmatic][:cli_version] = nil
+

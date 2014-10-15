@@ -1,6 +1,8 @@
 # opsmatic::agent
 #   Installs and configures the Opsmatic agent
 
+include_recipe "opsmatic::common"
+
 if node[:opsmatic][:integration_token].nil? || node[:opsmatic][:integration_token].empty?
   raise "You need to configure your Opsmatic integration_token attribute to install the Opsmatic Agent"
 end

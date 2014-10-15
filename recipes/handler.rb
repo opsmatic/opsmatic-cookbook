@@ -1,6 +1,8 @@
 # opsmatic::handler
 #   Installs and configures the Opsmatic report and exception handler
 
+include_recipe "opsmatic::common"
+
 chef_gem "chef-handler-opsmatic" do
   action :upgrade
   version node[:opsmatic][:handler_version]
