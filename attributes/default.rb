@@ -18,6 +18,7 @@ default[:opsmatic][:agent_action] = "install"
 default[:opsmatic][:agent_version] = nil
 
 default[:opsmatic][:integration_token] = nil
+default[:opsmatic][:api_http] = nil
 
 # same as corresponding settings for agent, but for the CLI util
 default[:opsmatic][:cli_action] = "install"
