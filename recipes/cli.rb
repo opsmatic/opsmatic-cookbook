@@ -1,7 +1,7 @@
 # opsmatic::cli
 #   Installs and configures opsmatic CLI utils
 
-include_recipe "::common"
+include_recipe "opsmatic::common"
 
 # wire up the appropriate repositories
 case node[:platform_family] 
