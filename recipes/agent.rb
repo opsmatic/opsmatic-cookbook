@@ -26,7 +26,7 @@ end
 
 # perform initial configuration
 execute "opsmatic-agent initial configuration" do
-  command "/usr/bin/config-opsmatic-agent --token=#{node[:opsmatic][:integration_token]}"
+  command "/usr/bin/config-opsmatic-agent"
   not_if { ::File.exists?("/var/db/opsmatic-agent/data")}
 end
 
