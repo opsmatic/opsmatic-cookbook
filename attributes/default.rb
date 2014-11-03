@@ -2,7 +2,7 @@
 # so we'll need to pin the version in the attributes, and suggest
 # customers configure this attribute globally in their environment to make
 # upgrading easier
-default[:opsmatic][:handler_version] = "0.0.11"
+default[:opsmatic][:handler_version] = "0.0.12"
 # this should only be override or changed on advice from Opsmatic support
 default[:opsmatic][:handler_endpoint] = "https://api.opsmatic.com/webhooks/events/chef"
 # TODO: we need to work out a portable way to consistently verify certs
