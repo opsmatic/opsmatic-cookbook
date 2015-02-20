@@ -1,5 +1,5 @@
 name             'opsmatic'
-maintainer       'Joe Friedrich'
+maintainer       'Opsmatic, Inc'
 maintainer_email 'support@opsmatic.com'
 license          'All rights reserved'
 description      'Installs/Configures Opsmatic services and integrations'
