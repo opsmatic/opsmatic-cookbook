@@ -21,7 +21,7 @@ Attributes
 ----------
 
 * `node[:opsmatic][:integration_token]` - You must configure this attribute with your integration token. You can find your
-integration token on the account settings page in your Opsmatic account.
+integration token on the [Integrations](https://opsmatic.com/app/integrations) page in your Opsmatic account.
 
 #### opsmatic::handler
 
@@ -37,13 +37,22 @@ and you can bump the version number.
 Default behavior is to install the latest available version the first time
 around and stay put after that.
 
+* `node[:opsmatic][:host_alias]` - specifies the host's alias in `/etc/opsmatic-agent.conf`
+* `node[:opsmatic][:groups]` - specifies the group that a host belongs to in `/etc/opsmatic-agent.conf`
+
+More information regarding the latter two attributes can be located [here](https://opsmatic.com/app/docs/agent-configuration)
+
+#### opsmatic::file-integrity-monitoring
+
+* `node[:opsmatic][:file-monitor-list]` - takes an array of strings that contain file paths for [file integrity monitoring](https://opsmatic.com/app/docs/file-integrity-monitoring)
+
 Usage
 -----
 #### opsmatic::handler
 
 To wire the handler into your infrastructure, add the `opsmatic::handler` recipe as the first item in the run list
 of your node or role.
-
+```json
     {
         "name":"my_node",
         "run_list": [
@@ -51,6 +60,8 @@ of your node or role.
             ...
         ]
     }
+```
+
 
 Contributing
 ------------
