@@ -30,8 +30,10 @@ execute "opsmatic-agent initial configuration" do
   not_if { ::File.exists?("/var/db/opsmatic-agent/data")}
 end
 
+include_recipe "opsmatic::file-integrity-monitoring"
+
 # configure the service
 service "opsmatic-agent" do
   provider Chef::Provider::Service::Upstart
-  action [:enable, :start]
+  action [:enable, :start, :reload]
 end
