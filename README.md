@@ -1,6 +1,6 @@
 opsmatic Cookbook
 ======================
-This cookbook contains various recipes to help you with integrating your infrastructure with Opsmatic. The receipes
+This cookbook contains various recipes to help you with integrating your infrastructure with Opsmatic. The recipes
 contained in this cookbook are as follows:
 
 #### opsmatic::handler
@@ -10,6 +10,12 @@ This recipe configures a report and exception handler that sends detail on succe
 #### opsmatic::agent
 
 This recipe configures the opsmatic collection agent
+
+#### opsmatic::file-integrity-monitoring
+
+This recipe configures file monitoring for the agent
+
+
 
 Requirements
 ------------
@@ -36,7 +42,6 @@ and you can bump the version number.
 * `node[:opsmatic][:handler_version]` - pins the agent to a specific version.
 Default behavior is to install the latest available version the first time
 around and stay put after that.
-
 * `node[:opsmatic][:host_alias]` - specifies the host's alias in `/etc/opsmatic-agent.conf`
 * `node[:opsmatic][:groups]` - specifies the group that a host belongs to in `/etc/opsmatic-agent.conf`
 
@@ -44,23 +49,41 @@ More information regarding the latter two attributes can be located [here](https
 
 #### opsmatic::file-integrity-monitoring
 
-* `node[:opsmatic][:file-monitor-list]` - takes an array of strings that contain file paths for [file integrity monitoring](https://opsmatic.com/app/docs/file-integrity-monitoring)
+* `node[:opsmatic][:file-monitor-list]` - takes an array of strings that contain file paths for [file integrity monitoring](https://opsmatic.com/app/docs/file-integrity-monitoring):
+`"file-monitor-list": ['/etc/nginx/nginx.conf','/etc/ssh/sshd_config','/etc/rsyslog.conf','/etc/hosts','/etc/passwd']`
+
 
 Usage
 -----
-#### opsmatic::handler
+#### opsmatic::handler && opsmatic::agent
 
 To wire the handler into your infrastructure, add the `opsmatic::handler` recipe as the first item in the run list
-of your node or role.
+of your node or role (You will need to use the agent as well).
+
 ```json
     {
-        "name":"my_node",
+        "name": "my_node",
         "run_list": [
-            "recipe[opsmatic::handler]",
-            ...
-        ]
-    }
+           "recipe[opsmatic::handler]",
+           "recipe[opsmatic::agent]",
+           ...
+    ]
+``` 
+The attributes will look something like this:   
+
+```json
+     "attributes":
+          {
+            "opsmatic": {
+              "integration_token": "YOUR-INTEGRATION-TOKEN",
+              "file-monitor-list": ['/etc/nginx/nginx.conf','/etc/ssh/sshd_config','/etc/rsyslog.conf','/etc/hosts','/etc/passwd'],
+              "host_alias": "chefcookbookhostname",
+              "groups": ["groupone", "anothergroup", "yetanothergroup"]
+            }
+          }
 ```
+
+To install just the agent remove the opsmatic::handler recipe.
 
 
 Contributing
