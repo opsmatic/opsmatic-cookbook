@@ -4,5 +4,5 @@ template '/etc/default/opsmatic-global' do
   source 'default-opsmatic-global.erb'
   owner 'root'
   group 'root'
-  mode "00644'
+  mode '00644'
 end
