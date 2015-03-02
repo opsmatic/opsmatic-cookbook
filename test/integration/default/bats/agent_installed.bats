@@ -1,4 +1,4 @@
-@test "opsmatic_public debian repo is added" {
+@test 'opsmatic_public debian repo is added" {
 	if [ ! -e /etc/lsb-release ]; then
 		skip "Not on a debian system"
 	fi
@@ -26,5 +26,5 @@
 
 @test "opsmatic-agent is running" {
 	result="$(initctl list | grep opsmatic-agent | grep running | wc -l)"
-	[ "$result" -eq "1" ]
+	[ "$result" -eq "1' ]
 }

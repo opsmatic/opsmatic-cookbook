@@ -67,24 +67,24 @@ of your node or role (You will need to use the agent as well).
            "recipe[opsmatic::handler]",
            "recipe[opsmatic::agent]",
            ...
-    ]
+        ]
+    }
 ``` 
-The attributes will look something like this:   
+
+The attributes will look something like this:
 
 ```json
-     "attributes":
-          {
-            "opsmatic": {
-              "integration_token": "YOUR-INTEGRATION-TOKEN",
-              "file-monitor-list": ['/etc/nginx/nginx.conf','/etc/ssh/sshd_config','/etc/rsyslog.conf','/etc/hosts','/etc/passwd'],
-              "host_alias": "chefcookbookhostname",
-              "groups": ["groupone", "anothergroup", "yetanothergroup"]
-            }
-          }
+    "attributes": {
+        "opsmatic": {
+            "integration_token": "YOUR-INTEGRATION-TOKEN",
+            "file-monitor-list": ['/etc/nginx/nginx.conf','/etc/ssh/sshd_config','/etc/rsyslog.conf','/etc/hosts','/etc/passwd'],
+            "host_alias": "chefcookbookhostname",
+            "groups": ["groupone", "anothergroup", "yetanothergroup"]
+        }
+    }
 ```
 
 To install just the agent remove the opsmatic::handler recipe.
-
 
 Contributing
 ------------
