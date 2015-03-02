@@ -15,7 +15,7 @@ if node['opsmatic']['public_repo']
   when 'rhel'
     include_recipe 'opsmatic::rhel_public'
   else
-    warn "Unfortunately the Opsmatic Agent isn't supported on this platform"
+    warn 'Unfortunately the Opsmatic Agent isn\'t supported on this platform'
     return
   end
 end
@@ -35,19 +35,17 @@ end
 # Config File for Opsmatic Agent
 # https://opsmatic.com/app/docs/agent-configuration
 
-template "/etc/opsmatic-agent.conf" do
-  source "opsmatic-agent.conf.erb"
-  owner "root"
-  group "root"
-  mode "00644"
+template '/etc/opsmatic-agent.conf' do
+  source 'opsmatic-agent.conf.erb'
+  owner 'root'
+  group 'root'
+  mode '00644'
 end
 
-include_recipe "opsmatic::file-integrity-monitoring"
+include_recipe 'opsmatic::file-integrity-monitoring'
 
 # configure the service
 service 'opsmatic-agent' do
   provider Chef::Provider::Service::Upstart
   action [:enable, :start]
 end
-
-
