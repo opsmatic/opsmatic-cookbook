@@ -21,4 +21,3 @@ package 'opsmatic-cli' do
   action node['opsmatic']['cli_action']
   version node['opsmatic']['cli_version']
 end
-

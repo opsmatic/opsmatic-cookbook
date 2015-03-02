@@ -47,7 +47,7 @@ include_recipe "opsmatic::file-integrity-monitoring"
 # configure the service
 service 'opsmatic-agent' do
   provider Chef::Provider::Service::Upstart
-  action ['enable, :start']
+  action [:enable, :start]
 end
 
 
