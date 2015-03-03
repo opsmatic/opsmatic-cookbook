@@ -7,6 +7,11 @@ cookbook_file '/etc/pki/rpm-gpg/RPM-GPG-KEY-opsmatic_packagecloud' do
   source 'packagecloud_yum_gpg.key'
 end
 
+cookbook_file '/etc/pki/rpm-gpg/9DAB4A7C_opsmatic-artifacts' do
+  source '9DAB4A7C.key'
+  mode '0640'
+end
+
 cookbook_file '/etc/yum.repos.d/opsmatic_public.repo' do
   source 'yum_opsmatic_public.repo'
   mode '0644'
