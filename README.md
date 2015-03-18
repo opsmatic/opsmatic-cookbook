@@ -67,8 +67,7 @@ of your node or role (You will need to use the agent as well).
         "name": "my_node",
         "run_list": [
            "recipe[opsmatic::handler]",
-           "recipe[opsmatic::agent]",
-           ...
+           "recipe[opsmatic::agent]"
         ]
     }
 ``` 
@@ -79,7 +78,7 @@ The attributes will look something like this:
     "attributes": {
         "opsmatic": {
             "integration_token": "YOUR-INTEGRATION-TOKEN",
-            "file-monitor-list": ['/etc/nginx/nginx.conf','/etc/ssh/sshd_config','/etc/rsyslog.conf','/etc/hosts','/etc/passwd'],
+            "file-monitor-list": ["/etc/nginx/nginx.conf","/etc/ssh/sshd_config","/etc/rsyslog.conf","/etc/hosts","/etc/passwd"],
             "host_alias": "chefcookbookhostname",
             "groups": ["groupone", "anothergroup", "yetanothergroup"]
         }
