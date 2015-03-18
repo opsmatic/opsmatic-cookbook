@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/opsmatic/opsmatic-cookbook.svg?branch=master)](https://travis-ci.org/opsmatic/opsmatic-cookbook)
+
 opsmatic Cookbook
 ======================
 This cookbook contains various recipes to help you with integrating your infrastructure with Opsmatic. The recipes
