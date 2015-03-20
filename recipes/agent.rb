@@ -49,6 +49,7 @@ template '/etc/opsmatic-agent.conf' do
   owner 'root'
   group 'root'
   mode '00644'
+  notifies :restart, 'service[opsmatic-agent]', :delayed
 end
 
 include_recipe 'opsmatic::file-integrity-monitoring'
