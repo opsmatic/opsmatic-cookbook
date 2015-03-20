@@ -1,6 +1,6 @@
 [opsmatic_public]
 name=opsmatic_public
-baseurl=https://packagecloud.io/opsmatic/public/el/6/$basearch
+baseurl=https://packagecloud.io/opsmatic/public/el/$releasever/$basearch
 enabled=1
 gpgcheck=1
 sslverify=1
