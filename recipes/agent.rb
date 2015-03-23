@@ -7,6 +7,14 @@ if node['opsmatic']['integration_token'].nil? || node['opsmatic']['integration_t
   raise 'You need to configure your Opsmatic integration_token attribute to install the Opsmatic Agent'
 end
 
+# CentOS 7 detection
+if node['platform_family'] == 'rhel' && node['platform_version'] =~ /^7/
+  centos7 = true
+  opsmatic_package = 'opsmatic-agent-systemd'
+else
+  opsmatic_package = 'opsmatic-agent'
+end
+
 if node['opsmatic']['public_repo']
   # wire up the appropriate repositories
   case node['platform_family']
@@ -21,7 +29,7 @@ if node['opsmatic']['public_repo']
 end
 
 # install the opsmatic agent
-package 'opsmatic-agent' do
+package opsmatic_package do
   action node['opsmatic']['agent_action']
   version node['opsmatic']['agent_version']
 end
@@ -40,12 +48,17 @@ template '/etc/opsmatic-agent.conf' do
   owner 'root'
   group 'root'
   mode '00644'
+  notifies :restart, 'service[opsmatic-agent]', :delayed
 end
 
 include_recipe 'opsmatic::file-integrity-monitoring'
 
 # configure the service
 service 'opsmatic-agent' do
-  provider Chef::Provider::Service::Upstart
+  if centos7
+    provider Chef::Provider::Service::Systemd
+  else
+    provider Chef::Provider::Service::Upstart
+  end
   action [:enable, :start]
 end

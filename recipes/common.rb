@@ -5,4 +5,5 @@ template '/etc/default/opsmatic-global' do
   owner 'root'
   group 'root'
   mode '00644'
+  notifies :restart, 'service[opsmatic-agent]', :delayed
 end
