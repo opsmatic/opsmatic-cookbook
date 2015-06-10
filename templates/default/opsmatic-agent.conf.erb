@@ -9,3 +9,7 @@ host_alias = "<%= node["opsmatic"]["host_alias"] %>"
 # Group of which this host is a memeber (comma separated)
 groups = "<%= node["opsmatic"]["groups"].join(',') %>"
 <% end %>
+<% if node["opsmatic"]["opsmatic_http"] && !node["opsmatic"]["opsmatic_http"].empty? %>
+# connect to this instance of opsmatic:
+opsmatic_http = "<%= node["opsmatic"]["opsmatic_http"] %>"
+<% end %>
