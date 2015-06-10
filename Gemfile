@@ -5,6 +5,7 @@ gem 'coveralls', require: false
 gem 'rubocop'
 
 group :development do
+  gem 'stove'
   gem 'test-kitchen'
   gem 'kitchen-vagrant'
   gem 'fauxhai'
