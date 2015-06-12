@@ -43,11 +43,16 @@ end
 # Config File for Opsmatic Agent
 # https://opsmatic.com/app/docs/agent-configuration
 
+ingest_http = node['opsmatic']['ingest_http'] || nil
+
 template '/etc/opsmatic-agent.conf' do
   source 'opsmatic-agent.conf.erb'
   owner 'root'
   group 'root'
   mode '00644'
+  variables(
+    'ingest_http' => ingest_http
+  )
   notifies :restart, 'service[opsmatic-agent]', :delayed
 end
 

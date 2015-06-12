@@ -18,10 +18,13 @@ default['opsmatic']['agent_action'] = 'install'
 default['opsmatic']['agent_version'] = nil
 
 default['opsmatic']['integration_token'] = nil
-default['opsmatic']['api_http'] = nil
 
 # same as corresponding settings for agent, but for the CLI util
 default['opsmatic']['cli_action'] = 'install'
 default['opsmatic']['cli_version'] = nil
 
 default['opsmatic']['public_repo'] = true
+
+# under the hood - you should only need to tune these if instructed by Opsmatic staff
+default['opsmatic']['api_http'] = nil
+default['opsmatic']['ingest_http'] = nil

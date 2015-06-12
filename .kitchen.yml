@@ -23,6 +23,6 @@ suites:
           "file-monitor-list": ['/etc/nginx/nginx.conf','/etc/ssh/sshd_config','/etc/rsyslog.conf','/etc/hosts','/etc/passwd'],
           "host_alias": "chefcookbookhostname",
           "groups": ["groupone", "anothergroup", "yetanothergroup"],
-          "api_http": "",
+          "ingest_http": "",
         }
       }
