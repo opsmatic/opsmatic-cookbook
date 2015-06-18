@@ -31,7 +31,7 @@ end
 # install the opsmatic agent
 package opsmatic_package do
   action node['opsmatic']['agent_action']
-  version node['opsmatic']['agent_version']
+  version node['opsmatic']['agent_version'] unless node['opsmatic']['agent_version'].nil?
 end
 
 # perform initial configuration
