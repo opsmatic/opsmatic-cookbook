@@ -4,10 +4,18 @@
 
 # Create /var/db/opsmatic-agent/external.d/
 
-directory '/var/db/opsmatic-agent/external.d' do
-  owner 'root'
-  group 'root'
-  mode '00644'
+case node['platform_family']
+when 'windows'
+  directory 'C:\Program Files\Opsmatic\opsmatic-agent\external.d' do
+    recursive true
+    action :create
+  end
+else
+  directory '/var/db/opsmatic-agent/external.d' do
+    owner 'root'
+    group 'root'
+    mode '00644'
+  end
 end
 
 # Populate the directory created above with a JSON file:
@@ -15,9 +23,16 @@ end
 # Create JSON file from attributes (array of comma separated paths)
 # i.e  "file-monitor-list": ['/etc/nginx/nginx.conf','/etc/ssh/sshd_config','/etc/rsyslog.conf','/etc/hosts','/etc/passwd']
 
-template '/var/db/opsmatic-agent/external.d/file-integrity-monitoring.json' do
-  source 'file-integrity-monitoring.json.erb'
-  owner 'root'
-  group 'root'
-  mode '00644'
+case node['platform_family']
+when 'windows'
+  template 'C:\Program Files\Opsmatic\opsmatic-agent\external.d\file-integrity-monitoring.json' do
+    source 'file-integrity-monitoring.json.erb'
+  end
+else
+  template '/var/db/opsmatic-agent/external.d/file-integrity-monitoring.json' do
+    source 'file-integrity-monitoring.json.erb'
+    owner 'root'
+    group 'root'
+    mode '00644'
+  end
 end
