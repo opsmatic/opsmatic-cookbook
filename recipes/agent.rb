@@ -22,6 +22,10 @@ if node['opsmatic']['public_repo']
     include_recipe 'opsmatic::debian_public'
   when 'rhel'
     include_recipe 'opsmatic::rhel_public'
+  when 'windows'
+    # Windows takes a completely separate path - a recipe which will handle everything itself.
+    include_recipe 'opsmatic::windows'
+    return
   else
     warn 'Unfortunately the Opsmatic Agent isn\'t supported on this platform'
     return
