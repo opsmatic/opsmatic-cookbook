@@ -41,13 +41,17 @@ and you can bump the version number.
 
 * `node[:opsmatic][:agent_action]` - determines whether chef should attept to
 `upgrade` the agent on every subsequent run
-* `node[:opsmatic][:handler_version]` - pins the agent to a specific version.
+* `node[:opsmatic][:agent_version]` - pins the agent to a specific version.
 Default behavior is to install the latest available version the first time
 around and stay put after that.
 * `node[:opsmatic][:host_alias]` - specifies the host's alias in `/etc/opsmatic-agent.conf`
 * `node[:opsmatic][:groups]` - specifies the group that a host belongs to in `/etc/opsmatic-agent.conf`
 
 More information regarding the latter two attributes can be located [here](https://opsmatic.com/app/docs/agent-configuration)
+
+#### Special Note for Windows
+
+* On Windows, `node[:opsmatic][:agent_version]` must be specified and set to an exact version of the agent. (`latest` is not currently supported.)
 
 #### opsmatic::file-integrity-monitoring
 
@@ -70,7 +74,7 @@ of your node or role (You will need to use the agent as well).
            "recipe[opsmatic::agent]"
         ]
     }
-``` 
+```
 
 The attributes will look something like this:
 
