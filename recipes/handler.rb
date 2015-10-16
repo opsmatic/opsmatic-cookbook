@@ -21,6 +21,7 @@ chef_handler 'Chef::Handler::Opsmatic' do
     :integration_token => node['opsmatic']['integration_token'],
     :collector_url     => node['opsmatic']['handler_endpoint'],
     :ssl_peer_verify   => node['opsmatic']['handler_ssl_peer_verify'],
+    :timeout           => node['opsmatic']['handler_timeout'],
     :agent_dir         => default_agent_dir
   ]
   action :nothing
