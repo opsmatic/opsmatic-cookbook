@@ -13,3 +13,7 @@ groups = "<%= node["opsmatic"]["groups"].join(',') %>"
 # connect to this instance of opsmatic:
 opsmatic_http = "<%= @ingest_http %>"
 <% end %>
+
+<% if node["opsmatic"]["newrelic_server_key"] %>
+newrelic_server_key = "<%= node["opsmatic"]["newrelic_server_key"] %>"
+<% end %>
